@@ -1,15 +1,26 @@
-<?php include("layouts/head.php"); 
+<?php 
+//session_start();
+include("layouts/head.php"); 
 include("vendor/autoload.php");
 include("functions.php");
 use Libs\Databases\MySQL;
 use Libs\Databases\PostTable;
 use Libs\Databases\CategoryTable;
+use Libs\Databases\CommentsTable;
+use Helpers\Auth;
+$auth = Auth::check();
 
 $table = new PostTable(new MySQL());
 $id= $_GET['id'];
 $posts = $table->getPostById($id);
 // echo "<pre>";
 // print_r($posts);
+// echo "</pre>";
+$comment_data = new CommentsTable(new MySQL());
+$comments = $comment_data->getPostComments($id);
+
+// echo "<pre>";
+// print_r($comments);
 // echo "</pre>";
 ?>
 
@@ -48,7 +59,47 @@ $posts = $table->getPostById($id);
 
      </section>
     </article>
-    <!-- Nested row for non-featured blog posts-->
+    <!-- comment section -->
+    <section class="mb-5">
+     <div class="card bg-light">
+      <div class="card-body">
+       <!-- Comment form-->
+       <form class="mb-4" action="_actions/post_comment_create.php" method="POST">
+        <input type="hidden" name="post_id" value="<?= $id ?>">
+        <textarea name="comment" class="form-control" rows="3"
+         placeholder="Join the discussion and leave a comment!"></textarea>
+        <div class="mb-3 mt-3">
+         <input type="submit" class="btn btn-outline-primary" value="Create Comment">
+        </div>
+       </form>
+       <!-- Comment with nested comments-->
+       <?php foreach($comments as $comment): ?>
+       <div class="d-flex mb-4">
+        <!-- Parent comment-->
+        <div class="flex-shrink-0"><img class="rounded-circle" src="_actions/photos/<?= $comment->profile ?>" alt="..."
+          width="50px" height="50px" /></div>
+        <div class="ms-3">
+         <div class="fw-bold"><?= $comment->user ?></div>
+         <?= $comment->comment; ?>
+         <!-- Child comment 1-->
+        </div>
+        <div class="mb-3">
+         <!-- delete comment -->
+         <?php if($comment->user_id == $auth->id): ?>
+         <form action="_actions/post_delete_comment.php" method="POST">
+          <input type="hidden" name="id" value="<?= $comment->id ?>">
+          <input type="hidden" name="post_id" value="<?= $id ?>">
+          <input type="submit" class="btn btn-outline-danger" value="Delete Comment">
+         </form>
+         <?php endif; ?>
+        </div>
+       </div>
+       <?php endforeach; ?>
+       <!-- Single comment-->
+
+      </div>
+     </div>
+    </section>
 
     <!-- Pagination-->
 
