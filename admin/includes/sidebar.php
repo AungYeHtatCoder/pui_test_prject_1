@@ -69,14 +69,14 @@ $auth = Auth::check();
     </div>
     <?php } ?>
 
-    <?php if($auth->value == '3'){ ?>
+    <?php //if($auth->value == '3'){ ?>
     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
      aria-expanded="false" aria-controls="collapsePages">
      <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
      Schoole Management
      <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
     </a>
-    <?php } ?>
+    <?php //} ?>
     <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
      <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
       <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth"
@@ -91,6 +91,7 @@ $auth = Auth::check();
         <a class="nav-link" href="subject_index.php">Subject</a>
         <a class="nav-link" href="tr_index.php">Teacher List</a>
         <a class="nav-link" href="tr_info_index.php">TR Info</a>
+        <a class="nav-link" href="tr_video_lesson_index.php">Video Lesson</a>
        </nav>
 
       </div>
