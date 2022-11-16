@@ -55,4 +55,22 @@ class TRUploadVideoTable
    return $e->getMessage();
   }
  }
+
+ // get all video data with join program, class, subject, user and pagination
+    public function GetVideoAllDataWithPagination($start, $limit)
+    {
+    $statement = $this->db->prepare("
+                SELECT tr_upload_lessons.*, programs.program_name, classes.class_name, classes.class_code, subjects.subject_name, subjects.subject_code, users.name, users.email
+                FROM tr_upload_lessons 
+                LEFT JOIN programs ON tr_upload_lessons.program_id = programs.id
+                LEFT JOIN classes ON tr_upload_lessons.class_id = classes.id
+                LEFT JOIN subjects ON tr_upload_lessons.subject_id = subjects.id
+                LEFT JOIN users ON tr_upload_lessons.user_id = users.id
+                ORDER BY tr_upload_lessons.id DESC LIMIT $start, $limit
+            ");
+    $statement->execute();
+    $row = $statement->fetchAll();
+    return $row;
+    
+    }
 }

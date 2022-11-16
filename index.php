@@ -38,7 +38,7 @@ $query = $link->query("SELECT posts.*, users.name, users.email, users.photo, cat
 
  // number of posts
     $num_posts = $query->num_rows;
-    $num_per_pages = 6;
+    $num_per_pages = 6;// limit of posts per page
     $num_pages = ceil($num_posts/$num_per_pages);
     if(isset($_GET['page'])){
       $page = $_GET['page'];    

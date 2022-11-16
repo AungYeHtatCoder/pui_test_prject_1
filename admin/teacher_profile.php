@@ -174,7 +174,7 @@ use Libs\Databases\ClassTable;
                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                 <form action="tr_upload_lesson_video_create.php" method="POST" enctype="multipart/form-data"
+                 <form action="../actions/tr_upload_lesson_video_create.php" method="POST" enctype="multipart/form-data"
                   id="form-data">
                   <div class="mb-3">
                    <label for="teacher name" class="form-label">Lesson Title</label>
