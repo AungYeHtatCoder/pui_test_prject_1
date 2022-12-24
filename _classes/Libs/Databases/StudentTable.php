@@ -17,7 +17,7 @@ class StudentTable
  public function StudentInfoCreateWithFile($data)
  {
   try{
-   $query = "INSERT INTO students (student_name, father_name, mother_name, father_id_card_no, mother_id_card_no, phone, address, academic_year, class_id, attach_file, user_id, created_at) VALUES (:student_name, :father_name, :mother_name, :father_id_card_no, :mother_id_card_no, :phone, :address, :academic_year, :class_id, :attach_file, :user_id, Now())";
+   $query = "INSERT INTO students (student_name, roll_no, father_name, mother_name, father_id_card_no, mother_id_card_no, phone, address, academic_year, class_id, attach_file, user_id, created_at) VALUES (:student_name, :roll_no, :father_name, :mother_name, :father_id_card_no, :mother_id_card_no, :phone, :address, :academic_year, :class_id, :attach_file, :user_id, Now())";
    $statement = $this->db->prepare($query);
    $statement->execute($data);
    return $this->db->lastInsertId();

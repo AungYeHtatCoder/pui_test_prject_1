@@ -14,6 +14,10 @@ $auth = Auth::check();
      <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
      Back To User
     </a>
+    <a class="nav-link" href="dashboard.php">
+     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+     Dashboard
+    </a>
     <div class="sb-sidenav-menu-heading">Interface</div>
     <?php if($auth->value == '3'){ ?>
     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
@@ -28,6 +32,7 @@ $auth = Auth::check();
      <nav class="sb-sidenav-menu-nested nav">
       <a class="nav-link" href="user_index.php">User</a>
       <a class="nav-link" href="role_index.php">Role</a>
+      <a class="nav-link" href="event_index.php">Event</a>
 
      </nav>
     </div>
@@ -123,6 +128,9 @@ $auth = Auth::check();
        <nav class="sb-sidenav-menu-nested nav">
         <a class="nav-link" href="exam_name_index.php">Exam Name</a>
         <a class="nav-link" href="exam_result_index.php">KG Exam Result</a>
+        <a class="nav-link" href="ch_test.php">Exam Result Bar Chart Js</a>
+        <a class="nav-link" href="exam_result_line_chart.php">Exam Result Line Chart Js</a>
+        <a class="nav-link" href="exam_result_pie_chart.php">Exam Result Line Chart Js</a>
         <a class="nav-link" href="404.html">404 Page</a>
         <a class="nav-link" href="500.html">500 Page</a>
        </nav>

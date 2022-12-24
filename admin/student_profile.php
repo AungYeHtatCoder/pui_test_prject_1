@@ -28,7 +28,7 @@ use Libs\Databases\ClassTable;
       <div class="card-header">
        <i class="fas fa-table me-1"></i>
        If you are a student, you must fill to complete your information.
-       <span><a href="tr_info_index.php" class="btn btn-outline-warning">View Your Information</a></span>
+       <span><a href="st_index.php" class="btn btn-outline-warning">View Your Information</a></span>
        <span><a href="" class="btn btn-outline-primary float-end" data-bs-toggle="modal"
          data-bs-target="#exampleModal">Student Info
          Fill</a></span>
@@ -168,8 +168,12 @@ use Libs\Databases\ClassTable;
         <div class="modal-body">
          <form action="../_actions/student_info_create.php" method="POST" enctype="multipart/form-data">
           <div class="mb-3">
-           <label for="TeacherName" class="form-label">StudentName</label>
+           <label for="StudentName" class="form-label">StudentName</label>
            <input type="text" name="student_name" class="form-control" placeholder="Enter Your Name" require>
+          </div>
+          <div class="mb-3">
+           <label for="RollNo" class="form-label">Roll No</label>
+           <input type="text" name="roll_no" class="form-control" placeholder="Enter Your Name" require>
           </div>
           <div class="mb-3">
            <label for="Father" class="form-label">Fahter Name</label>

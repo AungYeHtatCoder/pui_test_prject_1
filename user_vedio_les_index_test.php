@@ -49,7 +49,7 @@ $videos = $table->GetVideoAllDataWithPagination($offset, $limit);
       <div class="small text-muted">January 1, 2022</div>
       <h2 class="card-title">Featured Post Title</h2>
       <p class="card-text"></p>
-      <a class="btn btn-primary" href="#!">Read more →</a>
+      <a class="btn btn-primary" href="user_vedio_les_index_detail.php?id=<?= $video_les->id ?>">Read more →</a>
      </div>
      <?php endforeach; ?>
     </div>

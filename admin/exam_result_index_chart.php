@@ -100,6 +100,7 @@ include("includes/extra_head.php");
           $geo = $result->sub_geo;
           $history = $result->sub_history;
           $totals = $myanmar + $english + $math + $science + $geo + $history;
+
           $grade_point = $totals / 100;
           ?>
          <tr>

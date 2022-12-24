@@ -73,4 +73,22 @@ class TRUploadVideoTable
     return $row;
     
     }
+
+    // video by id
+    public function GetVideoById($id)
+    {
+    $statement = $this->db->prepare("
+                SELECT tr_upload_lessons.*, programs.program_name, classes.class_name, classes.class_code, subjects.subject_name, subjects.subject_code, users.name, users.email
+                FROM tr_upload_lessons 
+                LEFT JOIN programs ON tr_upload_lessons.program_id = programs.id
+                LEFT JOIN classes ON tr_upload_lessons.class_id = classes.id
+                LEFT JOIN subjects ON tr_upload_lessons.subject_id = subjects.id
+                LEFT JOIN users ON tr_upload_lessons.user_id = users.id
+                WHERE tr_upload_lessons.id = :id
+            ");
+    $statement->execute(["id" => $id]);
+    $row = $statement->fetch();
+    return $row;
+    
+    }
 }
